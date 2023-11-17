@@ -1131,12 +1131,14 @@
                             <a href="{{route('career')}}" class="menu__menuitem--menulink w-uline">
                                 Careers </a>
                         </li>
+                        <li class="menu__menuitem ">
+                            <a href="https://landingpage.xyberixsolutions.com/" class="menu__menuitem--menulink w-uline">
+                                Contact </a>
+                        </li>
                     </ul>
                     <div class="social-wrapper">
                         <div class="anchor-wrapper project-anchor">
-                            <a href="javascript:void(0)" class="menu-open ">
-                                <span >GET A FREE QUOTE</span>
-                            </a>
+                            <button class="menu-open btn get-in-touch-wrap" id="animatedButton"><span>Get a Free Quote</span></button>
                         </div>
                     </div>
                 </nav>
@@ -1574,23 +1576,6 @@
                                 Careers </a>
                         </li>
                     </ul>
-                </div>
-                <div class="social-wrapper mob-social-wrapper">
-                    <div class="anchor-wrapper project-anchor">
-                        <a href="#" class="menu-open">
-                            <span>Speak to an Expert</span>
-                        </a>
-                    </div>
-                    <div class="anchor-wrapper whatsapp-anchor">
-                        <a target="_blank" href="https://wa.me/(917) 203-8420">
-                            <img class="svg-convert" src="{{asset('images/social-whatsapp.svg')}}" alt="whatsapp">
-                        </a>
-                    </div>
-                    <div class="anchor-wrapper">
-                        <a href="tel:(917) 203-8420">
-                            <img class="svg-convert" src="{{asset('images/social-phone.svg')}}" alt>
-                        </a>
-                    </div>
                 </div>
                 <div id="toggle" class="nav-button">
                 </div>

@@ -2955,3 +2955,74 @@
         </div>
     </section>
 @endsection
+@section('scripts')
+    <script type="text/javascript">
+        document.addEventListener("DOMContentLoaded", function () {
+            document.getElementsByClassName("tablinks")[0].click();
+        });
+
+        function openCity(evt, cityName) {
+            var i, tabcontent, tablinks;
+            tabcontent = document.getElementsByClassName("tabcontent");
+            for (i = 0; i < tabcontent.length; i++) {
+                tabcontent[i].style.display = "none";
+            }
+            tablinks = document.getElementsByClassName("tablinks");
+            for (i = 0; i < tablinks.length; i++) {
+                tablinks[i].className = tablinks[i].className.replace(" active", "");
+            }
+            document.getElementById(cityName).style.display = "block";
+            evt.currentTarget.className += " active";
+        }
+
+        function adjustTabs() {
+            const tabContainer = document.querySelector('.tab');
+            const tabLinks = tabContainer.querySelectorAll('.tablinks');
+            const moreDropdown = document.querySelector('.dropdown-content');
+
+            const breakpoints = [767, 650, 620, 550, 450, 400];
+            const maxVisibleTabs = [6, 5, 4, 3, 2, 1];
+
+            let maxTabs = 6;
+
+            for (let i = 0; i < breakpoints.length; i++) {
+                if (window.innerWidth <= breakpoints[i]) {
+                    maxTabs = maxVisibleTabs[i];
+                }
+            }
+
+            if (tabLinks.length > maxTabs) {
+                document.querySelector('.dropdown').style.display = 'inline-block';
+            } else {
+                document.querySelector('.dropdown').style.display = 'none';
+            }
+
+            const tabsToMove = Array.from(tabLinks).slice(maxTabs);
+            moreDropdown.innerHTML = '';
+            tabsToMove.forEach((tab) => {
+                const button = document.createElement('button');
+                button.className = 'tablinks';
+                button.innerText = tab.innerText;
+                button.onclick = function () {
+                    handleDropdownClick(tab.innerText); // Call the handler function
+                };
+                moreDropdown.appendChild(button);
+                tab.style.display = 'none';
+            });
+
+            if (window.innerWidth > 767) {
+                tabLinks.forEach((tab) => {
+                    tab.style.display = 'inline-block';
+                });
+            }
+        }
+
+        function handleDropdownClick(cityName) {
+            openCity(event, cityName);
+        }
+
+        adjustTabs();
+        window.addEventListener('resize', adjustTabs);
+
+    </script>
+@endsection

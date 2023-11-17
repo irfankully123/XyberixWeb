@@ -32,7 +32,6 @@
 </div>
 @include('partials.user_form')
 @include('partials.social_wrapper')
-@yield('scripts')
 <script src="{{ asset('js/3.6.0-jquery.min.js') }}"></script>
 <script src="{{asset('js/swiper@8-swiper-bundle.min.js')}}"></script>
 <script src="{{ asset('js/vendors-svgConvert.min.js') }}"></script>
@@ -97,5 +96,6 @@
         }
     });
 </script>
+@yield('scripts')
 </body>
 </html>
